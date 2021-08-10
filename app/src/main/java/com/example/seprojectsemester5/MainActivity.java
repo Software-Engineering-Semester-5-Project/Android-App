@@ -1,4 +1,4 @@
-package com.example.seprojectsemester5;
+gpupackage com.example.seprojectsemester5;
 
 import androidx.appcompat.app.AppCompatActivity;
 

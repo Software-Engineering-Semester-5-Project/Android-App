@@ -511,7 +511,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
             android:text="UPDATE"
             android:layout_margin="7dp"/>
     </LinearLayout>

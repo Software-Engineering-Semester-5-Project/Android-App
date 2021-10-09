@@ -59,6 +59,11 @@ public class UpdateHealthStatusFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_update_health_status, container, false);
+        View Activity = inflater.inflate(R.layout.fragment_update_health_status, container, false);
+
+
+
+
+        return Activity;
     }
 }

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
-
+    tools:context=".AnalystLogin">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -131,5 +130,4 @@
         app:layout_constraintVertical_bias="0.995">
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

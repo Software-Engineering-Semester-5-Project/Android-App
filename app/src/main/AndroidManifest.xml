@@ -9,15 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+<<<<<<< HEAD
         <activity
             android:name=".PieChart"
             android:exported="true" >
+=======
+        <activity
+            android:name=".AadharInput"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".PesonalDataFeeding"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".AnalystRegister" />
+        <activity android:name=".AnalystLogin" />
+        <activity android:name=".Register" />
+        <activity android:name=".QuestionAnswerPage" />
+        <activity android:name=".Login" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="true">
+>>>>>>> 2ef26830300013c6214a9ad79c19e492cc2e6651
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".QuestionAnswerPage"></activity>
         <activity android:name=".Login" />
         <activity
@@ -26,6 +48,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
+=======
+        <activity android:name=".MainActivity" />
+>>>>>>> 2ef26830300013c6214a9ad79c19e492cc2e6651
     </application>
 
 </manifest>

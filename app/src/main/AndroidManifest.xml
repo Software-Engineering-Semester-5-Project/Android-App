@@ -9,12 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".AnalystRegister">
-
-        </activity>
-        <activity android:name=".AnalystLogin" >
-
-        </activity>
+        <activity android:name=".SelectRole"></activity>
+        <activity android:name=".AnalystRegister"></activity>
+        <activity android:name=".AnalystLogin"></activity>
         <activity android:name=".Register" />
         <activity android:name=".QuestionAnswerPage" />
         <activity android:name=".Login" />

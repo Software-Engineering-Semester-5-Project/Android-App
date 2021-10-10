@@ -21,7 +21,7 @@
         app:mbn_circleColor="@color/white"
         app:mbn_selectedIconColor="#FFC074"
         app:mbn_countTextColor="@color/white"
-        app:mbn_countBackgroundColor="#D54C4C"
+        app:mbn_countBackgroundColor="#FFC074"
         app:mbn_defaultIconColor="#B6C867"
         app:mbn_backgroundBottomColor="#01937C"
         />

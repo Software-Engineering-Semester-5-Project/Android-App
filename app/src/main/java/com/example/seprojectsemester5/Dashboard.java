@@ -22,9 +22,8 @@ public class Dashboard extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottom_navigation);
 
         // adding menu items
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_content_paste_search_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_health_and_safety_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_person_pin_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_health_and_safety_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_person_pin_24));
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
@@ -33,12 +32,9 @@ public class Dashboard extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (item.getId()){
                     case 1 :
-                        fragment = new AnalysisFragment();
-                        break;
-                    case 2 :
                         fragment = new UpdateHealthStatusFragment();
                         break;
-                    case 3 :
+                    case 2 :
                         fragment = new ProfileFragment();
                         break;
                 }
@@ -47,7 +43,7 @@ public class Dashboard extends AppCompatActivity {
         });
 
         // set notification count
-        bottomNavigation.setCount(2, "3");
+        bottomNavigation.setCount(2, "✔️");
 
         // default
         bottomNavigation.show(1, true);

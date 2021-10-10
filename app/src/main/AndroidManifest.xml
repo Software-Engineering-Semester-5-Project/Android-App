@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".SelectRole"></activity>
+        <activity android:name=".AadharInput"></activity>
         <activity android:name=".AnalystRegister"></activity>
         <activity android:name=".AnalystLogin"></activity>
         <activity android:name=".Register" />

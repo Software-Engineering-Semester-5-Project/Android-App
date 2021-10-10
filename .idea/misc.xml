@@ -7,12 +7,17 @@
         <entry key="..\:/MY PROJECT/Android-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1705" />
         <entry key="..\:/MY PROJECT/Android-App/app/src/main/res/layout/activity_dashboard.xml" value="0.2635416666666667" />
         <entry key="..\:/MY PROJECT/Android-App/app/src/main/res/layout/activity_main.xml" value="0.2635416666666667" />
+        <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/button_background.xml" value="0.1265" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/edit_text_border.xml" value="0.1265" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/ic_call_black_24dp.xml" value="0.1705" />
+        <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/ic_edit_white_24dp.xml" value="0.1265" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/ic_person_black_24dp.xml" value="0.1705" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/drawable/ic_wave__4_.xml" value="0.1705" />
+        <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/activity_aadhar_input.xml" value="0.22826086956521738" />
+        <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/activity_dashboard.xml" value="0.115625" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/activity_pesonal_data_feeding.xml" value="0.22826086956521738" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/activity_question_answer_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/fragment_update_health_status.xml" value="0.22826086956521738" />
       </map>
     </option>

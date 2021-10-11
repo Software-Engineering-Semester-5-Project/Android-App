@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AnalystLogin">
+    tools:context=".SelectRole">
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -17,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -36,9 +36,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"></TextView>
-
     </LinearLayout>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="350dp"
@@ -51,83 +49,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.700">
-
         <LinearLayout
             android:id="@+id/login_ip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:text="Please login to your account"
+                android:text="Please select your role"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
                 android:textSize="18dp"></TextView>
-
-            <EditText
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/collectorCard"
+                android:layout_width="250dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/edit_text_border"
-                android:hint="Enter email"
-                android:padding="10dp"
-                android:textSize="18dp"></EditText>
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/teal_700">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/outline_post_add_24"
+                    android:layout_marginTop="20dp"
+                    app:tint="@color/white"></ImageView>
 
-            <EditText
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="I'm a Data Collector"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"></TextView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/analystCard"
+                android:layout_width="250dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/edit_text_border"
-                android:hint="Enter password"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:textSize="18dp"></EditText>
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/teal_700">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/outline_assessment_24"
+                    android:layout_marginTop="20dp"
+                    app:tint="@color/white"></ImageView>
 
-            <Button
-                android:layout_width="275dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_background"
-                android:text="LOGIN"
-                android:textColor="@color/white"></Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="New User? Register here"
-                android:textColor="@color/teal_700"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:id="@+id/goToAnalystRegister">
-
-            </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="I'm a Data Analyst"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"></TextView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@color/teal_700"
-        android:backgroundTint="@color/teal_700"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.995">
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,17 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
+            android:name=".dataanalyst.DataAnalystMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".dataanalyst.view_data_report.ViewReportActivity"
+            android:exported="true"
+            android:label="@string/title_activity_view_report" />
+        <activity
             android:name=".AadharInput"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".PesonalDataFeeding"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".AnalystRegister" />
-        <activity android:name=".AnalystLogin" />
+            android:exported="true" />
+        <activity android:name=".dataanalyst.AnalystRegister" />
+        <activity android:name=".dataanalyst.AnalystLogin" />
         <activity android:name=".Register" />
         <activity android:name=".QuestionAnswerPage" />
         <activity android:name=".Login" />

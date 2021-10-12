@@ -2,4 +2,23 @@
     <string name="app_name">SE Project Semester 5</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_report">ViewReportActivity</string>
+    <string name="title_synced_data">Synced Data</string>
+    <string name="title_un_synced_data">UnSynced Data</string>
+    <string name="filters">Filters </string>
+    <string name="data_analyst_disease_textview">Disease :</string>
+    <string name="data_analyst_disease_checkbox_fever">Fever</string>
+    <string name="data_analyst_disease_checkbox_cough_cold">Cough/Cold</string>
+    <string name="data_analyst_disease_checkbox_body_pain">Body Pain</string>
+    <string name="data_analyst_disease_checkbox_breathing">Breathing Problem</string>
+    <string name="data_analyst_disease_checkbox_eye">Eye Problem</string>
+    <string name="data_analyst_disease_checkbox_skin">Skin Problem</string>
+    <string name="data_analyst_pin_code_textview">Pin code :</string>
+    <string name="data_analyst_pin_code_edit_text">Enter pin code here</string>
+    <string name="data_analyst_apply_button">Apply</string>
+    <string name="data_analyst_sex_checkbox_male">Male</string>
+    <string name="data_analyst_sex_checkbox_female">Female</string>
+    <string name="data_analyst_sex_checkbox_all">All</string>
+    <string name="data_analyst_sex_textview">Sex :</string>
+    <string name="data_analyst_age_textview">Age :</string>
 </resources>

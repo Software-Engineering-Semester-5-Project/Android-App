@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    android:id="@+id/data_analyst_filter_view"
+    android:visibility="gone"
+    tools:visibility="visible"
+    android:theme="@style/Theme.SEProjectSemester5"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/data_analyst_sex_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_analyst_sex_textview"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/data_analyst_sex_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:checkedButton="@id/data_analyst_sex_radiobutton_all">
+        <RadioButton
+            android:id="@+id/data_analyst_sex_radiobutton_male"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/data_analyst_sex_checkbox_male"/>
+        <RadioButton
+            android:id="@+id/data_analyst_sex_radiobutton_female"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/data_analyst_sex_checkbox_female"/>
+        <RadioButton
+            android:id="@+id/data_analyst_sex_radiobutton_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/data_analyst_sex_checkbox_all"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/data_analyst_age_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_analyst_age_textview"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_analyst_sex_radio_group" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/data_analyst_age_min_value_textview"
+            android:text="30"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <com.google.android.material.slider.RangeSlider
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/data_analyst_age_range_slider"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:stepSize="10"
+            app:values="@array/initial_slider_values"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/data_analyst_age_max_value_textview"
+            android:text="70"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/data_analyst_disease_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_analyst_disease_textview"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data_analyst_age_range_slider" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/data_analyst_disease_grid_layout"
+        android:rowCount="3"
+        android:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@+id/data_analyst_disease_textview">
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_fever"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_fever" />
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_cough_cold"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_cough_cold"/>
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_body_pain"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_body_pain" />
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_breathing"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_breathing" />
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_eye"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_eye" />
+
+        <CheckBox
+            android:id="@+id/data_analyst_disease_checkbox_skin"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="@string/data_analyst_disease_checkbox_skin"/>
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/data_analyst_pin_code_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@string/data_analyst_pin_code_textview"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/data_analyst_pin_code_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/data_analyst_pin_code_edit_text"
+            android:autofillHints="postalCode"
+            android:inputType="number"
+            android:maxLength="6" />
+
+    </LinearLayout>
+
+</LinearLayout>

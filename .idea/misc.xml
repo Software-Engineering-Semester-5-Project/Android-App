@@ -19,6 +19,24 @@
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/activity_question_answer_page.xml" value="0.22826086956521738" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/MY PROJECT/Software Engineering/Android-App/app/src/main/res/layout/fragment_update_health_status.xml" value="0.22826086956521738" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_avatar_24dp.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_baseline_content_paste_search_24.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_baseline_health_and_safety_24.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_baseline_person_add_alt_1_24.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/drawable/ic_person_black_24dp.xml" value="0.2390194075587334" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/activity_data_analyst_main.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/activity_question_answer_page.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/activity_view_report.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/data_analyst_filters.xml" value="0.536" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/fragment_synced_data.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/fragment_un_synced_data.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/recycler_view.xml" value="0.2234375" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/layout/view_data_recycler_view_item.xml" value="0.264" />
+        <entry key="..\:/Users/Swarnim Pratap Singh/StudioProjects/Android-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2234375" />
+>>>>>>> origin/swarnim
         <entry key="..\:/seproject/Android-App/app/src/main/res/layout/activity_question_answer_page.xml" value="0.1" />
       </map>
     </option>

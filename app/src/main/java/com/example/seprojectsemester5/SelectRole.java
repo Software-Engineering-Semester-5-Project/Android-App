@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.seprojectsemester5.dataanalyst.AnalystLogin;
+
 public class SelectRole extends AppCompatActivity {
     CardView collectorCard,analystCard;
     @Override
@@ -25,7 +27,7 @@ public class SelectRole extends AppCompatActivity {
         analystCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SelectRole.this,AnalystLogin.class));
+                startActivity(new Intent(SelectRole.this, AnalystLogin.class));
                 finish();
             }
         });

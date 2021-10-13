@@ -38,19 +38,16 @@ public class AadharInput extends AppCompatActivity {
                             AadharInput.this.startActivity(intent);
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "OOPS", Toast.LENGTH_SHORT).show();
                             Toast.makeText(getApplicationContext(), "It should not contain any alphabet and special characters.", Toast.LENGTH_SHORT).show();
                             Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(getApplicationContext(), "OOPS", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), "It should not start with 0 and 1", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "OOPS", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "It should have 12 digits", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                 }

@@ -116,6 +116,7 @@
                 app:startIconDrawable="@drawable/ic_person_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_border">
@@ -134,6 +135,7 @@
                 app:startIconDrawable="@drawable/ic_person_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_border">
@@ -150,6 +152,7 @@
                 app:startIconDrawable="@drawable/ic_person_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_border">
@@ -169,6 +172,7 @@
                 app:startIconDrawable="@drawable/ic_person_black_24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pincode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_text_border">
@@ -218,7 +222,7 @@
 
 
             <Button
-                android:id="@+id/register"
+                android:id="@+id/personalDataSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

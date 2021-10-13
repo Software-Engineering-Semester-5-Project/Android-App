@@ -27,13 +27,17 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingBottom="20dp"
-                android:text="Registration"
+                android:layout_marginBottom="50dp"
+
+                android:text="Personal Data"
+                android:textStyle="bold"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="40sp"
+                android:textSize="35sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.263"
@@ -75,7 +79,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="324dp"
-        android:layout_height="570dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
         android:foregroundGravity="center_horizontal"
         android:padding="20dp"
         android:layout_marginBottom="20dp"
@@ -119,21 +124,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -169,21 +160,7 @@
 
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address*"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,21 +177,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="City, State*"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -226,7 +189,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sex*"
+                    android:text="Gender*"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:gravity="right">
@@ -254,6 +217,16 @@
             </LinearLayout>
 
 
+            <Button
+                android:id="@+id/register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white"
+                android:text="PROCEED ➤"
+                android:layout_margin="7dp"/>
+
         </LinearLayout>
 
 
@@ -266,20 +239,6 @@
 
 
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"
-        android:text="PROCEED ➤"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="0.246"
-        android:layout_margin="7dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

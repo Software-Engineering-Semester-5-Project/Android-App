@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class QuestionAnswerPage extends AppCompatActivity {
 
     AlertDialog.Builder builder;
+    SQLiteDBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class QuestionAnswerPage extends AppCompatActivity {
         String Gender = pastIntent.getStringExtra("Gender");
         String Pin = pastIntent.getStringExtra("Pin");
         builder = new AlertDialog.Builder(this);
+        DB = new SQLiteDBHelper(this);
 
 
         RadioGroup fever = (RadioGroup) findViewById(R.id.fever);
@@ -63,39 +65,41 @@ public class QuestionAnswerPage extends AppCompatActivity {
                 a.add(id6);
 
                 String survey = "";
-                for(int i = 0; i < a.size(); i ++){
+                for(int i = 0; i < a.size(); i ++) {
                     RadioButton mode = findViewById(a.get(i));
-                    if(mode.getText().toString().equals("Severe")){
+                    if (mode.getText().toString().equals("Severe")) {
                         survey += '3';
-                    }
-                    else if(mode.getText().toString().equals("Moderate")){
+                    } else if (mode.getText().toString().equals("Moderate")) {
                         survey += '2';
-                    }
-                    else if(mode.getText().toString().equals("Mild")){
+                    } else if (mode.getText().toString().equals("Mild")) {
                         survey += '1';
-                    }
-                    else{
+                    } else {
                         survey += '0';
                     }
 
                 }
 
 
-//                Toast.makeText(getApplicationContext(), aadharNumber, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), Name, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), Phone, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), Age, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), Gender, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), Pin, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getApplicationContext(), survey, Toast.LENGTH_SHORT).show();
+                String Disease = "";
 
-
-
+                String finalDisease = Disease;
+                String finalSurvey = survey;
                 builder.setMessage("Name - " + Name + "\nAadhar Number - " + aadharNumber + "\nAge - " + Age + "\nGender - " + Gender + "\nPin - " + Pin)
                         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+
+
+                                Boolean insert = DB.insertData(aadharNumber, Name, Age, Pin, Phone, Gender, finalSurvey, finalDisease);
+                                if(insert == true){
+                                    Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(QuestionAnswerPage.this, SyncedUnsycnedData.class);
+                                    QuestionAnswerPage.this.startActivity(intent);
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "Something Went Wrong !!!", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override

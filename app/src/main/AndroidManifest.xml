@@ -35,7 +35,9 @@
         <activity android:name=".dataanalyst.AnalystRegister" />
         <activity android:name=".dataanalyst.AnalystLogin" />
         <activity android:name=".Register" />
-        <activity android:name=".QuestionAnswerPage" />
+        <activity android:name=".QuestionAnswerPage" >
+
+        </activity>
         <activity android:name=".Login" />
         <activity
             android:name=".Dashboard"

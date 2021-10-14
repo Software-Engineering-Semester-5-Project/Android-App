@@ -91,7 +91,7 @@ public class QuestionAnswerPage extends AppCompatActivity {
 
 
 
-                builder.setMessage("Name - " + Name + "\nAadhar Number - " + aadharNumber + "\nAge - " + Age + "\nGender - " + Gender + "\nPin - " + "Pin")
+                builder.setMessage("Name - " + Name + "\nAadhar Number - " + aadharNumber + "\nAge - " + Age + "\nGender - " + Gender + "\nPin - " + Pin)
                         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

@@ -74,6 +74,15 @@ public class UpdateHealthStatusFragment extends Fragment {
             }
         });
 
+        Button proceedtocollectedcard = (Button) Activity.findViewById(R.id.collectedData);
+        proceedtocollectedcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SyncedUnsycnedData.class);
+                startActivity(intent);
+            }
+        });
+
 
         return Activity;
     }

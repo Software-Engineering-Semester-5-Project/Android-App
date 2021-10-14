@@ -63,6 +63,8 @@ public class UpdateHealthStatusFragment extends Fragment {
         // Inflate the layout for this fragment
         View Activity = inflater.inflate(R.layout.fragment_update_health_status, container, false);
 
+
+
         Button proceedtonewdata = (Button) Activity.findViewById(R.id.addnewdata);
         proceedtonewdata.setOnClickListener(new View.OnClickListener() {
             @Override

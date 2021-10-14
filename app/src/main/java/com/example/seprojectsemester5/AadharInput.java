@@ -26,6 +26,8 @@ public class AadharInput extends AppCompatActivity {
         EditText aadharNumber = (EditText) findViewById(R.id.aadharNumber);
         Button aadharSubmit = (Button) findViewById(R.id.aadharSubmit);
 
+
+
         aadharSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,6 +12,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -31,13 +33,13 @@ public class PesonalDataFeeding extends AppCompatActivity {
 
         Intent pastIntent = getIntent();
         String aadharNumber = pastIntent.getStringExtra("AadharNumber");
-        Toast.makeText(getApplicationContext(), aadharNumber, Toast.LENGTH_SHORT).show();
 
 
         EditText Name = (EditText) findViewById(R.id.name);
         EditText Phone = (EditText) findViewById(R.id.phone);
         EditText Age = (EditText) findViewById(R.id.age);
         EditText Pin = (EditText) findViewById(R.id.pincode);
+        RadioGroup Gender = findViewById(R.id.radioGroup);
 
         Button personalDataSubmit = (Button) findViewById(R.id.personalDataSubmit);
 
@@ -47,16 +49,15 @@ public class PesonalDataFeeding extends AppCompatActivity {
                 if(Name.getText().toString().length() > 0 && Name.getText().toString().length()  > 0 && Pin.getText().toString().length() > 0){
                     if(Age.getText().toString().length() <= 3 && Age.getText().toString().matches("[0-9]+")){
                         if(Pin.getText().toString().length() == 6 && Pin.getText().toString().matches("[0-9]+")){
+                            int id = Gender.getCheckedRadioButtonId();
+                            RadioButton mode = findViewById(id);
                             Intent intent = new Intent(PesonalDataFeeding.this, QuestionAnswerPage.class);
-                            intent.putExtra("Name", Name.getText().toString().length() );
-                            intent.putExtra("Age", Age.getText().toString().length());
-                            intent.putExtra("Phone", Phone.getText().toString().length());
-                            intent.putExtra("Pin", Pin.getText().toString().length());
+                            intent.putExtra("Name", Name.getText().toString() );
+                            intent.putExtra("Age", Age.getText().toString());
+                            intent.putExtra("Phone", Phone.getText().toString());
+                            intent.putExtra("Pin", Pin.getText().toString());
                             intent.putExtra("AadharNumber", aadharNumber);
-
-//                            intent.putExtra("Gender", "")
-
-
+                            intent.putExtra("Gender", mode.getText().toString());
 
                             PesonalDataFeeding.this.startActivity(intent);
                         }

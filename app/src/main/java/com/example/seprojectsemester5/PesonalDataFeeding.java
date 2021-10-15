@@ -31,51 +31,74 @@ public class PesonalDataFeeding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesonal_data_feeding);
 
-        Intent pastIntent = getIntent();
-        String aadharNumber = pastIntent.getStringExtra("AadharNumber");
 
 
+        EditText aadharNumber = (EditText) findViewById(R.id.uid);
         EditText Name = (EditText) findViewById(R.id.name);
         EditText Phone = (EditText) findViewById(R.id.phone);
         EditText Age = (EditText) findViewById(R.id.age);
         EditText Pin = (EditText) findViewById(R.id.pincode);
         RadioGroup Gender = findViewById(R.id.radioGroup);
 
+
         Button personalDataSubmit = (Button) findViewById(R.id.personalDataSubmit);
 
         personalDataSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Name.getText().toString().length() > 0 && Name.getText().toString().length()  > 0 && Pin.getText().toString().length() > 0){
-                    if(Age.getText().toString().length() <= 3 && Age.getText().toString().matches("[0-9]+")){
-                        if(Pin.getText().toString().length() == 6 && Pin.getText().toString().matches("[0-9]+")){
-                            int id = Gender.getCheckedRadioButtonId();
-                            RadioButton mode = findViewById(id);
-                            Intent intent = new Intent(PesonalDataFeeding.this, QuestionAnswerPage.class);
-                            intent.putExtra("Name", Name.getText().toString() );
-                            intent.putExtra("Age", Age.getText().toString());
-                            intent.putExtra("Phone", Phone.getText().toString());
-                            intent.putExtra("Pin", Pin.getText().toString());
-                            intent.putExtra("AadharNumber", aadharNumber);
-                            intent.putExtra("Gender", mode.getText().toString());
 
-                            PesonalDataFeeding.this.startActivity(intent);
+                String check = aadharNumber.getText().toString();
+                if(check.length() == 12){
+                    if(check.charAt(0) != '0' && check.charAt(0) != '1'){
+                        if(check.matches("[0-9]+")){
+                            if(Name.getText().toString().length() > 0 && Name.getText().toString().length()  > 0 && Pin.getText().toString().length() > 0){
+                                        if(Age.getText().toString().length() <= 3 && Age.getText().toString().matches("[0-9]+")){
+                                            if(Pin.getText().toString().length() == 6 && Pin.getText().toString().matches("[0-9]+")){
+                                                int id = Gender.getCheckedRadioButtonId();
+                                                RadioButton mode = findViewById(id);
+                                                Intent intent = new Intent(PesonalDataFeeding.this, QuestionAnswerPage.class);
+                                                intent.putExtra("Name", Name.getText().toString() );
+                                                intent.putExtra("Age", Age.getText().toString());
+                                                intent.putExtra("Phone", Phone.getText().toString());
+                                                intent.putExtra("Pin", Pin.getText().toString());
+                                                intent.putExtra("AadharNumber", aadharNumber.getText().toString());
+                                                intent.putExtra("Gender", mode.getText().toString());
+
+                                                PesonalDataFeeding.this.startActivity(intent);
+                                            }
+                                            else{
+                                                Toast.makeText(getApplicationContext(), "Invalid Pin !", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        else{
+                                            Toast.makeText(getApplicationContext(), "Invalid Age !", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                            else{
+                                        Toast.makeText(getApplicationContext(), "Name, Age, Pin should be Non-Empty", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
+                                    }
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "Invalid Pin !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "It should not contain any alphabet and special characters.", Toast.LENGTH_SHORT).show();
                             Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(getApplicationContext(), "Invalid Age !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "It should not start with 0 and 1", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Name, Age, Pin should be Non-Empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "It should have 12 digits", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "Please Retry", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
+
         });
 
     }

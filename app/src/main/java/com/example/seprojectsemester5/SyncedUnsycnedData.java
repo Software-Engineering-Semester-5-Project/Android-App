@@ -51,7 +51,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
             String[] phone = new String[N];
 
             for(int i = 0; i < N; i ++){
-                aadharNumber[i] = DATA.get(i).get(0);
+                aadharNumber[i] = "UID " + DATA.get(i).get(0);
                 name[i] = DATA.get(i).get(1);
                 age[i] = DATA.get(i).get(2);
                 gender[i] = DATA.get(i).get(5);

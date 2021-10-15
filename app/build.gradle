@@ -53,4 +53,7 @@ dependencies {
 
     // anychart
     implementation 'com.github.anychart:anychart-android:1.1.4'
+
+    //jwt
+    implementation 'com.auth0.android:jwtdecode:2.0.0'
 }

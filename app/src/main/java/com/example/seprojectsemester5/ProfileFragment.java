@@ -1,5 +1,6 @@
 package com.example.seprojectsemester5;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.auth0.android.jwt.Claim;
+import com.auth0.android.jwt.JWT;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,33 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View Activity = inflater.inflate(R.layout.fragment_profile, container, false);
+
+//        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY5MDJkNGUxYjM2ZTAwMTY5M2U3ZWMiLCJlbWFpbCI6InByZXJpdGtyamhhQGdtYWlsLmNvbSIsIm5hbWUiOiJQcmVyaXQgS3VtYXIgSmhhIiwicGFzc3dvcmQiOiIkMmEkMTAkZ2VXQVBJMW1uODVGd005dWhFWjJKdTNPYUtQRG9BaGZybGtxTEFxSkQ2NEFxRms3UzRJVVciLCJ2ZXJpZnkiOiJWZXJpZmllZCIsInZlcmlmeW5nbyI6IlZlcmlmaWVkIiwiX192IjowLCJpYXQiOjE2MzQyNzMyMjB9.01X28wJIIbzNSAaBrJeI2-WK8q4bcp1xWwmqty3BaNA";
+
+        String token = "";
+
+        if(token.equals("") || token.length() == 0){
+            Intent intent = new Intent(getActivity(), Login.class);
+            startActivity(intent);
+        }
+
+
+        JWT parsedJWT = new JWT(token);
+        Claim subscriptionMetaData = parsedJWT.getClaim("name");
+        String name = subscriptionMetaData.asString();
+        subscriptionMetaData = parsedJWT.getClaim("email");
+        String email = subscriptionMetaData.asString();
+
+        TextView Name = (TextView) Activity.findViewById(R.id.name);
+        TextView Email = (TextView) Activity.findViewById(R.id.email);
+
+        Name.setText(name);
+        Email.setText(email);
+
+
+        return Activity;
     }
+
+
 }

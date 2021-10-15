@@ -80,7 +80,7 @@
         android:id="@+id/cardView2"
         android:layout_width="324dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="100dp"
         android:foregroundGravity="center_horizontal"
         android:padding="20dp"
         android:layout_marginBottom="20dp"
@@ -106,7 +106,22 @@
             >
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aadhar Number*"
+                android:padding="5dp"
+                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/uid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_border">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

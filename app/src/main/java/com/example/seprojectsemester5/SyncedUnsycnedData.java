@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -34,6 +35,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SyncedUnsycnedData extends AppCompatActivity {
 
@@ -110,6 +112,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                 if(active != null){
 
                    final String url = "https://g0uravlathwal.herokuapp.com/member/survey";
+                   final String token = "";
 
                     int N = DATA.size();
                     String aadharNumber;
@@ -152,7 +155,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                                        try {
                                            VolleyLog.v("Response:%n %s", response.toString(4));
                                            Log.e("VOLLEY", response.toString());
-                                           Toast.makeText(getApplicationContext(), "SUcess", Toast.LENGTH_SHORT).show();
+                                           Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 
                                        } catch (JSONException e) {
                                            e.printStackTrace();
@@ -165,7 +168,15 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                                Log.e("VOLLEY", error.toString());
                                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
                            }
-                       });
+                       }) {
+                           @Override
+                           public Map<String, String> getHeaders() throws AuthFailureError {
+                               Map<String, String> params = new HashMap<String, String>();
+                               params.put("x-auth-token", token);
+
+                               return params;
+                           }
+                       };
                        requestQueue.add(req);
 
 

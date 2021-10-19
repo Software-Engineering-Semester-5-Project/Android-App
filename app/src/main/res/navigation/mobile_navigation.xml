@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_synced_data"
-        android:name="com.example.seprojectsemester5.dataanalyst.view_data_report.ui.synced_data.SyncedDataFragment"
+        android:name="com.example.seprojectsemester5.view_data_report.ui.synced_data.SyncedDataFragment"
         android:label="@string/title_synced_data"
         tools:layout="@layout/fragment_synced_data" />
 
     <fragment
         android:id="@+id/navigation_un_synced_data"
-        android:name="com.example.seprojectsemester5.dataanalyst.view_data_report.ui.unsynced_data.UnSyncedDataFragment"
+        android:name="com.example.seprojectsemester5.view_data_report.ui.unsynced_data.UnSyncedDataFragment"
         android:label="@string/title_un_synced_data"
         tools:layout="@layout/fragment_un_synced_data" />
 

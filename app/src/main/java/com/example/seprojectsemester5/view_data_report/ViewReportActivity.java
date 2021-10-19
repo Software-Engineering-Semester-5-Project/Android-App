@@ -1,4 +1,4 @@
-package com.example.seprojectsemester5.dataanalyst.view_data_report;
+package com.example.seprojectsemester5.view_data_report;
 
 import android.os.Bundle;
 

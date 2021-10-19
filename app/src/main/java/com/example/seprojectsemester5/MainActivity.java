@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this,SelectRole.class));
+                startActivity(new Intent(MainActivity.this, SelectRole.class));
                 finish();
             }
         },2000);

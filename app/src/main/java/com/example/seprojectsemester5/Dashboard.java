@@ -42,8 +42,17 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        // set notification count
-        bottomNavigation.setCount(2, "✔️");
+
+        String token = "";
+
+
+        if(token.equals("") || token.length() == 0){
+            // set notification count
+            bottomNavigation.setCount(2, "❗");
+        }
+        else{
+            bottomNavigation.setCount(2, "✔️");
+        }
 
         // default
         bottomNavigation.show(1, true);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dataanalyst.view_data_report.ui.unsynced_data.UnSyncedDataFragment">
+    tools:context=".view_data_report.ui.unsynced_data.UnSyncedDataFragment">
 
     <include
         android:layout_height="match_parent"

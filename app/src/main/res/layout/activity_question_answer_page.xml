@@ -84,49 +84,50 @@
                 android:id="@+id/fever"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing1">
 
 
                 <RadioButton
-                    android:id="@+id/feverSever"
+                    android:id="@+id/Severe1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (more than 20 days)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/feverModerate"
+                    android:id="@+id/Moderate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (more than 10 days)"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/feverMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (twice or thrice)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/feverNothing"
+                    android:id="@+id/Mild1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (once or never)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
             </RadioGroup>
         </LinearLayout>
 
@@ -137,7 +138,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -162,49 +163,50 @@
                 android:id="@+id/cough"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing2">
 
                 <RadioButton
-                    android:id="@+id/coughSever"
+                    android:id="@+id/Severe2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (more than 40 day every month)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/coughModerate"
+                    android:id="@+id/Moderate2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (more than 30 day every month)"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/coughMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (twice or thrice in entire duration)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/coughNothing"
+                    android:id="@+id/Mild2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (never or just once in th entire duration)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
+
             </RadioGroup>
         </LinearLayout>
 
@@ -215,7 +217,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -240,49 +242,52 @@
                 android:id="@+id/bodyPain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing3">
 
                 <RadioButton
-                    android:id="@+id/bodyPainSever"
+                    android:id="@+id/Severe3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (at least once every day for more than 60 days)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/bodyPainModerate"
+                    android:id="@+id/Moderate3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (at least once every day for more than 20 days))"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/bodyPainMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (twice or thrice in entire duration)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/bodyPainNothing"
+                    android:id="@+id/Mild3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (once or never in entire duration)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
+
+
+
             </RadioGroup>
         </LinearLayout>
 
@@ -293,7 +298,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -318,49 +323,50 @@
                 android:id="@+id/breathingProblem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing4">
 
                 <RadioButton
-                    android:id="@+id/breathingProblemSever"
+                    android:id="@+id/Severe4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (most of the days)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/breathingProblemModerate"
+                    android:id="@+id/Moderate4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (one or two days every month)"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/breathingProblemMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (twice or thrice in entire duration)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/breathingProblemNothing"
+                    android:id="@+id/Mild4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (maybe once or not at all)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
+
             </RadioGroup>
         </LinearLayout>
 
@@ -371,7 +377,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -396,49 +402,51 @@
                 android:id="@+id/eyeCheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing5">
 
                 <RadioButton
-                    android:id="@+id/eyeCheckSever"
+                    android:id="@+id/Severe5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (pains all day)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/eyeCheckModerate"
+                    android:id="@+id/Moderate5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (happens in frequent intervals)"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/eyeCheckMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (maybe twice a week)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/eyeCheckNothing"
+                    android:id="@+id/Mild"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (maybe once in last four months)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
+
+                android:onClick="radioButtonhandler"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -449,7 +457,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -473,49 +481,49 @@
                 android:id="@+id/skinCheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:checkedButton="@+id/Nothing6">
 
                 <RadioButton
-                    android:id="@+id/skinCheckSever"
+                    android:id="@+id/Severe6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Severe (severe whole body infection)"
+                    android:text="Severe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
 
                 <RadioButton
-                    android:id="@+id/skinCheckModerate"
+                    android:id="@+id/Moderate6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Moderate (mild infection for few weeks)"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.655"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
-                <RadioButton
-                    android:id="@+id/skinCheckMild"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mild (only a small part infected for a couple of days)"
+                    android:text="Moderate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
                 <RadioButton
-                    android:id="@+id/skinCheckNothing"
+                    android:id="@+id/Mild6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nothing (cured within 48hours)"
+                    android:text="Mild"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.655"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <RadioButton
+                    android:id="@+id/Nothing6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nothing"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="radioButtonhandler"/>
+                    />
             </RadioGroup>
         </LinearLayout>
 
@@ -526,7 +534,7 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:layout_marginRight="14dp"
-         
+
         app:cardCornerRadius="15dp"
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
@@ -554,12 +562,13 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
         <Button
+            android:id="@+id/healthSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@drawable/button_background"
             android:textColor="@color/white"
-            android:text="UPDATE"
+            android:text="Submit"
             android:layout_margin="7dp"/>
     </LinearLayout>
     </ScrollView>

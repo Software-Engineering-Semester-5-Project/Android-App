@@ -3,6 +3,7 @@ package com.example.seprojectsemester5;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -63,11 +64,22 @@ public class UpdateHealthStatusFragment extends Fragment {
         // Inflate the layout for this fragment
         View Activity = inflater.inflate(R.layout.fragment_update_health_status, container, false);
 
-        Button proceedtonewdata = (Button) Activity.findViewById(R.id.addnewdata);
+
+
+        CardView proceedtonewdata = Activity.findViewById(R.id.addnewdata);
         proceedtonewdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AadharInput.class);
+                Intent intent = new Intent(getActivity(), PesonalDataFeeding.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView proceedtocollectedcard = Activity.findViewById(R.id.colleceddata);
+        proceedtocollectedcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SyncedUnsycnedData.class);
                 startActivity(intent);
             }
         });

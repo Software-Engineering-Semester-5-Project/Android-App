@@ -1,16 +1,16 @@
-package com.example.seprojectsemester5.dataanalyst.view_data_report.ui.synced_data;
+package com.example.seprojectsemester5.view_data_report.ui.unsynced_data;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SyncedDataViewModel extends ViewModel {
+public class UnSyncedDataViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SyncedDataViewModel() {
+    public UnSyncedDataViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is dashboard fragment");
     }
 
     public LiveData<String> getText() {

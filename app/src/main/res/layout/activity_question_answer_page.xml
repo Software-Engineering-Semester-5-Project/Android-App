@@ -539,27 +539,7 @@
         app:cardUseCompatPadding="true"
         android:elevation="8dp"
         >
-        <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="Did you any medical history?" />
-            <EditText
-                android:id="@+id/edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text|textMultiLine"
-                android:gravity="top"/>
-        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/healthSubmit"

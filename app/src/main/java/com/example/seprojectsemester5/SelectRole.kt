@@ -16,7 +16,7 @@ class SelectRole : AppCompatActivity() {
         analystCard = findViewById(R.id.analystCard)
 
         collectorCard.setOnClickListener {
-            startActivity(Intent(this@SelectRole, Login::class.java))
+            startActivity(Intent(this@SelectRole, Dashboard::class.java))
             finish()
         }
         analystCard.setOnClickListener { // bypassing the authenticating right now

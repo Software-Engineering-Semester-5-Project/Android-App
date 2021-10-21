@@ -111,8 +111,8 @@ public class SyncedUnsycnedData extends AppCompatActivity {
 
                 if(active != null){
 
-                   final String url = "https://g0uravlathwal.herokuapp.com/member/survey";
-                   final String token = "";
+                   final String url = "https://g0uravlathwal.herokuapp.com/member/fillsurvey";
+                   final String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTZlNzJmNzdkZWY2MjAwMTY5OTM2OGMiLCJlbWFpbCI6InByZXJpdGtyamhhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJDMuWlB4QXV5WllxNzVQcmRIZ05OVU92Zi5MS0FlTTA2UFhjRGIvdnkvZk9yeW5ZeVlTajQyIiwicm9sZSI6IkNvbGxlY3RvciIsIm5hbWUiOiJQcmVyaXQgS3VtYXIgSmhhIiwidmVyaWZ5IjoiVmVyaWZpZWQiLCJ2ZXJpZnluZ28iOiJWZXJpZmllZCIsIl9fdiI6MCwiaWF0IjoxNjM0NjQwNTY4fQ.CWVn78OGhq6f4_8QSoq0_iIAuJB7yUoFsdF_JO9urLY";
 
                     int N = DATA.size();
                     String aadharNumber;
@@ -130,7 +130,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                        gender = DATA.get(i).get(5);
                        pin = DATA.get(i).get(3);
                        phone = DATA.get(i).get(4);
-                       survey = DATA.get(i).get(5);
+                       survey = DATA.get(i).get(6);
                        disease = DATA.get(i).get(7);
 
 
@@ -143,6 +143,9 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                        params.put("phone", phone);
                        params.put("survey", survey);
                        params.put("disease", disease);
+
+
+                       Toast.makeText(getApplicationContext(), params.get("survey"), Toast.LENGTH_SHORT).show();
 
 
                        final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -166,7 +169,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                            public void onErrorResponse(VolleyError error) {
                                VolleyLog.e("Error: ", error.getMessage());
                                Log.e("VOLLEY", error.toString());
-                               Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(getApplicationContext(), "Failed " + error.toString(), Toast.LENGTH_SHORT).show();
                            }
                        }) {
                            @Override

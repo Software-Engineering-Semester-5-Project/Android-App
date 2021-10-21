@@ -5,7 +5,6 @@ import androidx.cardview.widget.CardView
 import android.os.Bundle
 import android.content.Intent
 import com.example.seprojectsemester5.dataanalyst.AnalystLogin
-import com.example.seprojectsemester5.dataanalyst.DataAnalystMainActivity
 
 class SelectRole : AppCompatActivity() {
     private lateinit var collectorCard: CardView

@@ -38,6 +38,12 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         return result == -1 ? false : true;
     }
 
+    public void onUpgrade() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + "Data");
+        onCreate(db);
+    }
+
     public Cursor getData(){
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("Select * from Data", null);

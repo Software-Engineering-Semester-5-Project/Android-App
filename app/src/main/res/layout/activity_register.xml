@@ -42,7 +42,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="350dp"
-        android:layout_height="550dp"
+        android:layout_height="450dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,6 +71,7 @@
                 android:textSize="18dp"></TextView>
 
             <EditText
+                android:id="@+id/name"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -79,16 +80,9 @@
                 android:hint="Enter name"
                 android:padding="10dp"
                 android:textSize="18dp"></EditText>
+
             <EditText
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_text_border"
-                android:hint="Enter employee id"
-                android:padding="10dp"
-                android:textSize="18dp"></EditText>
-            <EditText
+                android:id="@+id/email"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -99,6 +93,7 @@
                 android:textSize="18dp"></EditText>
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -115,6 +110,7 @@
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal">
                 <Button
+                    android:id="@+id/otpSend"
                     android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
@@ -124,6 +120,7 @@
                     android:textColor="@color/white"></Button>
 
                 <EditText
+                    android:id="@+id/otp"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
@@ -137,6 +134,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/registerSubmit"
                 android:layout_width="275dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"

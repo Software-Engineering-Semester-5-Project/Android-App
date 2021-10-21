@@ -78,6 +78,8 @@
                 android:background="@drawable/edit_text_border"
                 android:hint="Enter email"
                 android:padding="10dp"
+                android:id="@+id/data_analyst_login_email_edit_text"
+                android:inputType="textEmailAddress"
                 android:textSize="18dp"></EditText>
 
             <EditText
@@ -88,6 +90,7 @@
                 android:background="@drawable/edit_text_border"
                 android:hint="Enter password"
                 android:inputType="textPassword"
+                android:id="@+id/data_analyst_login_password_edit_text"
                 android:padding="10dp"
                 android:textSize="18dp"></EditText>
 
@@ -98,6 +101,7 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/button_background"
                 android:text="LOGIN"
+                android:id="@+id/data_analyst_login_button"
                 android:textColor="@color/white"></Button>
 
             <TextView

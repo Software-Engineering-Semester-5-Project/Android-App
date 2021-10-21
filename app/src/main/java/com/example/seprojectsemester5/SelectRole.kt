@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import android.os.Bundle
 import android.content.Intent
+import com.example.seprojectsemester5.dataanalyst.AnalystLogin
 import com.example.seprojectsemester5.dataanalyst.DataAnalystMainActivity
 
 class SelectRole : AppCompatActivity() {
@@ -20,8 +21,8 @@ class SelectRole : AppCompatActivity() {
             finish()
         }
         analystCard.setOnClickListener { // bypassing the authenticating right now
-            startActivity(Intent(this@SelectRole, DataAnalystMainActivity::class.java))
-            // startActivity(new Intent(SelectRole.this, AnalystLogin.class));
+//            startActivity(Intent(this@SelectRole, DataAnalystMainActivity::class.java))
+            startActivity(Intent(this, AnalystLogin::class.java))
             finish()
         }
     }

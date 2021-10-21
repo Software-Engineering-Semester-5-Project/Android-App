@@ -11,10 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.seprojectsemester5.models.User
 import android.widget.Toast
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.lifecycleScope
 import com.example.seprojectsemester5.repositories.remote.Resource
-import kotlinx.coroutines.launch
 
 class AnalystRegister : AppCompatActivity() {
 

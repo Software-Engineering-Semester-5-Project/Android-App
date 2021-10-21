@@ -92,6 +92,18 @@ public class ProfileFragment extends Fragment {
         Name.setText(name);
         Email.setText(email);
 
+        TextView Logout = (TextView) Activity.findViewById(R.id.logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("jwtToken", "");
+                editor.commit();
+                Intent intent = new Intent(getActivity(), Dashboard.class);
+                startActivity(intent);
+            }
+        });
+
 
         return Activity;
     }

@@ -93,7 +93,7 @@ public class QuestionAnswerPage extends AppCompatActivity {
                                 Boolean insert = DB.insertData(aadharNumber, Name, Age, Pin, Phone, Gender, finalSurvey, finalDisease);
                                 if(insert == true){
                                     Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(QuestionAnswerPage.this, SyncedUnsycnedData.class);
+                                    Intent intent = new Intent(QuestionAnswerPage.this, Dashboard.class);
                                     QuestionAnswerPage.this.startActivity(intent);
                                 }
                                 else{

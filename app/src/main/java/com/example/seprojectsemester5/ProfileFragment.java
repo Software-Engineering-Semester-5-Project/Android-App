@@ -1,6 +1,8 @@
 package com.example.seprojectsemester5;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -67,9 +69,10 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View Activity = inflater.inflate(R.layout.fragment_profile, container, false);
 
-//        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY5MDJkNGUxYjM2ZTAwMTY5M2U3ZWMiLCJlbWFpbCI6InByZXJpdGtyamhhQGdtYWlsLmNvbSIsIm5hbWUiOiJQcmVyaXQgS3VtYXIgSmhhIiwicGFzc3dvcmQiOiIkMmEkMTAkZ2VXQVBJMW1uODVGd005dWhFWjJKdTNPYUtQRG9BaGZybGtxTEFxSkQ2NEFxRms3UzRJVVciLCJ2ZXJpZnkiOiJWZXJpZmllZCIsInZlcmlmeW5nbyI6IlZlcmlmaWVkIiwiX192IjowLCJpYXQiOjE2MzQyNzMyMjB9.01X28wJIIbzNSAaBrJeI2-WK8q4bcp1xWwmqty3BaNA";
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("FIXED", Context.MODE_PRIVATE);
 
-        String token = "";
+        String token = sharedPreferences.getString("jwtToken","");
+
 
         if(token.equals("") || token.length() == 0){
             Intent intent = new Intent(getActivity(), Login.class);
@@ -88,6 +91,18 @@ public class ProfileFragment extends Fragment {
 
         Name.setText(name);
         Email.setText(email);
+
+        TextView Logout = (TextView) Activity.findViewById(R.id.logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("jwtToken", "");
+                editor.commit();
+                Intent intent = new Intent(getActivity(), Dashboard.class);
+                startActivity(intent);
+            }
+        });
 
 
         return Activity;

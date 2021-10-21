@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -108,137 +110,148 @@ public class SyncedUnsycnedData extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SharedPreferences sharedPreferences = getSharedPreferences("FIXED", Context.MODE_PRIVATE);
 
-                if(active != null){
+                String token = sharedPreferences.getString("jwtToken","");
 
-                   final String url = "https://g0uravlathwal.herokuapp.com/member/survey";
-                   final String token = "";
-
-                    int N = DATA.size();
-                    String aadharNumber;
-                    String name;
-                    String age;
-                    String gender;
-                    String pin;
-                    String phone;
-                    String survey;
-                    String disease;
-                   for(int i = 0; i < DATA.size(); i ++){
-                       aadharNumber = DATA.get(i).get(0);
-                       name = DATA.get(i).get(1);
-                       age = DATA.get(i).get(2);
-                       gender = DATA.get(i).get(5);
-                       pin = DATA.get(i).get(3);
-                       phone = DATA.get(i).get(4);
-                       survey = DATA.get(i).get(5);
-                       disease = DATA.get(i).get(7);
-
-
-                       HashMap<String, String> params = new HashMap<String, String>();
-                       params.put("name", name);
-                       params.put("age", age);
-                       params.put("aadharNumber", aadharNumber);
-                       params.put("gender", gender);
-                       params.put("pin", pin);
-                       params.put("phone", phone);
-                       params.put("survey", survey);
-                       params.put("disease", disease);
-
-
-                       final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-
-                       JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params),
-                               new Response.Listener<JSONObject>() {
-                                   @Override
-                                   public void onResponse(JSONObject response) {
-                                       try {
-                                           VolleyLog.v("Response:%n %s", response.toString(4));
-                                           Log.e("VOLLEY", response.toString());
-                                           Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-
-                                       } catch (JSONException e) {
-                                           e.printStackTrace();
-                                       }
-                                   }
-                               }, new Response.ErrorListener() {
-                           @Override
-                           public void onErrorResponse(VolleyError error) {
-                               VolleyLog.e("Error: ", error.getMessage());
-                               Log.e("VOLLEY", error.toString());
-                               Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-                           }
-                       }) {
-                           @Override
-                           public Map<String, String> getHeaders() throws AuthFailureError {
-                               Map<String, String> params = new HashMap<String, String>();
-                               params.put("x-auth-token", token);
-
-                               return params;
-                           }
-                       };
-                       requestQueue.add(req);
-
-
-
-                   }
-
-
-
-
-
-                    progressBar = new ProgressDialog(view.getContext());
-                    progressBar.setCancelable(true);
-                    progressBar.setMessage("Syncing to Cloud ...");
-                    progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                    progressBar.setProgress(0);
-                    progressBar.setMax(100);
-                    progressBar.show();
-                    //reset progress bar and filesize status
-                    progressBarStatus = 0;
-                    fileSize = 0;
-
-                    new Thread(new Runnable() {
-                        public void run() {
-                            while (progressBarStatus < 100) {
-                                // performing operation
-                                progressBarStatus = doOperation();
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                // Updating the progress bar
-                                progressBarHandler.post(new Runnable() {
-                                    public void run() {
-                                        progressBar.setProgress(progressBarStatus);
-                                    }
-                                });
-                            }
-                            // performing operation if file is downloaded,
-                            if (progressBarStatus >= 100) {
-                                // sleeping for 1 second after operation completed
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                // close the progress bar dialog
-                                progressBar.dismiss();
-                            }
-                        }
-                    }).start();
-
+                if(token.equals("")){
+                    Toast.makeText(getApplicationContext(), "Login Required", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Connectivity Issue", Toast.LENGTH_SHORT).show();
+                    if(active != null){
+
+                        final String url = "https://g0uravlathwal.herokuapp.com/member/fillsurvey";
+
+                        int N = DATA.size();
+                        String aadharNumber;
+                        String name;
+                        String age;
+                        String gender;
+                        String pin;
+                        String phone;
+                        String survey;
+                        String disease;
+                        for(int i = 0; i < DATA.size(); i ++){
+                            aadharNumber = DATA.get(i).get(0);
+                            name = DATA.get(i).get(1);
+                            age = DATA.get(i).get(2);
+                            gender = DATA.get(i).get(5);
+                            pin = DATA.get(i).get(3);
+                            phone = DATA.get(i).get(4);
+                            survey = DATA.get(i).get(6);
+                            disease = DATA.get(i).get(7);
+
+
+                            HashMap<String, String> params = new HashMap<String, String>();
+                            params.put("name", name);
+                            params.put("age", age);
+                            params.put("aadharNumber", aadharNumber);
+                            params.put("gender", gender);
+                            params.put("pin", pin);
+                            params.put("phone", phone);
+                            params.put("survey", survey);
+                            params.put("disease", disease);
+
+
+
+
+                            final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+
+                            int finalI = i;
+                            JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params),
+                                    new Response.Listener<JSONObject>() {
+                                        @Override
+                                        public void onResponse(JSONObject response) {
+                                            try {
+                                                VolleyLog.v("Response:%n %s", response.toString(4));
+                                                Log.e("VOLLEY", response.toString());
+                                                Toast.makeText(getApplicationContext(), "Progess ...", Toast.LENGTH_SHORT).show();
+                                                int x = DATA.size() - 1;
+                                                if(finalI == x){
+                                                    DB.onUpgrade();
+                                                    Toast.makeText(getApplicationContext(), "Success Syncing to Cloud, Local Cleared", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                                    startActivity(intent);
+                                                }
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    VolleyLog.e("Error: ", error.getMessage());
+                                    Log.e("VOLLEY", error.toString());
+                                    Toast.makeText(getApplicationContext(), "Failed " + error.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            }) {
+                                @Override
+                                public Map<String, String> getHeaders() throws AuthFailureError {
+                                    Map<String, String> params = new HashMap<String, String>();
+                                    params.put("x-auth-token", token);
+
+                                    return params;
+                                }
+                            };
+                            requestQueue.add(req);
+
+
+
+                        }
+
+
+
+
+
+                        progressBar = new ProgressDialog(view.getContext());
+                        progressBar.setCancelable(true);
+                        progressBar.setMessage("Syncing to Cloud ...");
+                        progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                        progressBar.setProgress(0);
+                        progressBar.setMax(100);
+                        progressBar.show();
+                        //reset progress bar and filesize status
+                        progressBarStatus = 0;
+                        fileSize = 0;
+
+                        new Thread(new Runnable() {
+                            public void run() {
+                                while (progressBarStatus < 100) {
+                                    // performing operation
+                                    progressBarStatus = doOperation();
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    // Updating the progress bar
+                                    progressBarHandler.post(new Runnable() {
+                                        public void run() {
+                                            progressBar.setProgress(progressBarStatus);
+                                        }
+                                    });
+                                }
+                                // performing operation if file is downloaded,
+                                if (progressBarStatus >= 100) {
+                                    // sleeping for 1 second after operation completed
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    // close the progress bar dialog
+                                    progressBar.dismiss();
+                                }
+                            }
+                        }).start();
+
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Connectivity Issue", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
-
-
-
-
-
 
                 }//end of onClick method
 

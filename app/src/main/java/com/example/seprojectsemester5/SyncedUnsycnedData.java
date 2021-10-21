@@ -115,7 +115,7 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                 String token = sharedPreferences.getString("jwtToken","");
 
                 if(token.equals("")){
-
+                    Toast.makeText(getApplicationContext(), "Login Required", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     if(active != null){
@@ -153,7 +153,6 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                             params.put("disease", disease);
 
 
-                            Toast.makeText(getApplicationContext(), params.get("survey"), Toast.LENGTH_SHORT).show();
 
 
                             final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());

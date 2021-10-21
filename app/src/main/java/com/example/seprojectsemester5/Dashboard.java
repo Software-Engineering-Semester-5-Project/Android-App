@@ -3,6 +3,8 @@ package com.example.seprojectsemester5;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -43,7 +45,8 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
-        String token = "";
+        SharedPreferences sharedPreferences = getSharedPreferences("FIXED", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("jwtToken","");
 
 
         if(token.equals("") || token.length() == 0){

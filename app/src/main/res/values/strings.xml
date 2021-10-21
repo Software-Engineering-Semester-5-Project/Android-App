@@ -5,14 +5,8 @@
     <string name="title_activity_view_report">ViewReportActivity</string>
     <string name="title_synced_data">Synced Data</string>
     <string name="title_un_synced_data">UnSynced Data</string>
-    <string name="filters">Filters </string>
-    <string name="data_analyst_disease_textview">Disease :</string>
-    <string name="data_analyst_disease_checkbox_fever">Fever</string>
-    <string name="data_analyst_disease_checkbox_cough_cold">Cough/Cold</string>
-    <string name="data_analyst_disease_checkbox_body_pain">Body Pain</string>
-    <string name="data_analyst_disease_checkbox_breathing">Breathing Problem</string>
-    <string name="data_analyst_disease_checkbox_eye">Eye Problem</string>
-    <string name="data_analyst_disease_checkbox_skin">Skin Problem</string>
+    <string name="filters_un_checked">View Past Result </string>
+    <string name="filters_checked">Refresh Data </string>
     <string name="data_analyst_pin_code_textview">Pin code :</string>
     <string name="data_analyst_pin_code_edit_text">Enter pin code here</string>
     <string name="data_analyst_apply_button">Apply</string>
@@ -21,4 +15,23 @@
     <string name="data_analyst_sex_checkbox_all">All</string>
     <string name="data_analyst_sex_textview">Sex :</string>
     <string name="data_analyst_age_textview">Age :</string>
+
+<!--    diseases filter-->
+    <string-array name="data_analyst_disease_type_array">
+        <item>Fever</item>
+        <item>Cough/Cold</item>
+        <item>Body Pain</item>
+        <item>Breathing Problems</item>
+        <item>Eye Problems</item>
+        <item>Skin Problems</item>
+    </string-array>
+
+    <string name="data_analyst_disease_textview">Select Disease :</string>
+    <string name="data_analyst_disease_fever">Fever</string>
+    <string name="data_analyst_disease_checkbox_cough_cold">Cough/Cold</string>
+    <string name="data_analyst_disease_body_pain">Body Pain</string>
+    <string name="data_analyst_disease_breathing">Breathing Problem</string>
+    <string name="data_analyst_disease_eye">Eye Problem</string>
+    <string name="data_analyst_disease_skin">Skin Problem</string>
+    <string name="data_analyst_button_refresh_result">Refresh Data</string>
 </resources>

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".dataanalyst.PieChart"
     android:elevation="10dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:id="@+id/data_analyst_pie_chart_view">
 
     <LinearLayout
         android:layout_width="match_parent"

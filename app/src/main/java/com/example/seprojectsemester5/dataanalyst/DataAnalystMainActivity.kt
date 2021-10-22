@@ -3,13 +3,13 @@ package com.example.seprojectsemester5.dataanalyst
 import android.R.integer
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.graphics.Color.BLACK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.CompoundButton
 import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.example.seprojectsemester5.R
 import com.example.seprojectsemester5.databinding.ActivityDataAnalystMainBinding
@@ -17,20 +17,65 @@ import com.example.seprojectsemester5.databinding.DataAnalystFiltersBinding
 import com.example.seprojectsemester5.databinding.DataAnalystPieChartBinding
 import com.example.seprojectsemester5.models.DiseaseFilters
 import com.example.seprojectsemester5.repositories.remote.Resource
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.slider.RangeSlider
+
+@BindingAdapter("android:setPieData")
+fun setPieData(pieChart : com.github.mikephil.charting.charts.PieChart, entries: List<PieEntry>?){
+    pieChart.isDrawHoleEnabled = true
+    pieChart.setUsePercentValues(true)
+    pieChart.setEntryLabelTextSize(12f)
+    pieChart.setEntryLabelColor(BLACK)
+    pieChart.centerText = "Disease Distribution"
+    pieChart.setCenterTextSize(24f)
+    pieChart.description.isEnabled = false
+
+    val legend = pieChart.legend
+    legend.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+    legend.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
+    legend.orientation = Legend.LegendOrientation.VERTICAL
+    legend.setDrawInside(false)
+    legend.isEnabled = true
+
+
+    val colors = mutableListOf<Int>()
+    for(color in ColorTemplate.MATERIAL_COLORS){
+        colors.add(color)
+    }
+    for(color in ColorTemplate.VORDIPLOM_COLORS){
+        colors.add(color)
+    }
+
+    val dataSet = PieDataSet(entries, "Disease Types")
+    dataSet.colors = colors
+
+    val pieData = PieData(dataSet)
+    pieData.setDrawValues(true)
+    pieData.setValueFormatter(PercentFormatter(pieChart))
+    pieData.setValueTextSize(12f)
+    pieData.setValueTextColor(BLACK)
+
+    pieChart.data = pieData
+    pieChart.invalidate()
+    println("Function is working")
+}
 
 class DataAnalystMainActivity : AppCompatActivity() {
     private var binding: ActivityDataAnalystMainBinding? = null
     private var shortAnimationDuration = 0
 
     // filter include
-    private var dataAnalystFilterInclude: DataAnalystFiltersBinding? = null
+    private lateinit var dataAnalystFilterInclude: DataAnalystFiltersBinding
 
     // viewModel
     private lateinit var viewModel : DataAnalystMainActivityViewModel
 
     // pie chart
-    private lateinit var pieChart: PieChart
     private lateinit var pieChartIncludeBinding : DataAnalystPieChartBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +86,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
             layoutInflater
         )
         setContentView(binding!!.root)
+//        binding = DataBindingUtil.setContentView(this, R.layout.activity_data_analyst_main)
 
         dataAnalystFilterInclude = binding!!.dataAnalystFilterInclude
 
@@ -55,7 +101,8 @@ class DataAnalystMainActivity : AppCompatActivity() {
             ViewModelProvider.AndroidViewModelFactory.getInstance(application))
             .get(DataAnalystMainActivityViewModel::class.java)
 
-        dataAnalystFilterInclude!!.viewModel = viewModel
+        dataAnalystFilterInclude.viewModel = viewModel
+        pieChartIncludeBinding.viewModel = viewModel
         // filterOption
         binding!!.filterOption.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             if (isChecked) {
@@ -66,12 +113,12 @@ class DataAnalystMainActivity : AppCompatActivity() {
         }
 
         // Filter Settings
-        dataAnalystFilterInclude!!.dataAnalystAgeRangeSlider.addOnChangeListener(
+        dataAnalystFilterInclude.dataAnalystAgeRangeSlider.addOnChangeListener(
             RangeSlider.OnChangeListener { slider: RangeSlider, _: Float, _: Boolean ->
             val minVal = slider.values[0].toInt()
             val maxVal = slider.values[1].toInt()
-            dataAnalystFilterInclude!!.dataAnalystAgeMinValueTextview.text = minVal.toString()
-            dataAnalystFilterInclude!!.dataAnalystAgeMaxValueTextview.text = maxVal.toString()
+            dataAnalystFilterInclude.dataAnalystAgeMinValueTextview.text = minVal.toString()
+            dataAnalystFilterInclude.dataAnalystAgeMaxValueTextview.text = maxVal.toString()
         })
 
         binding!!.dataAnalystApplyButton.setOnClickListener { handleApplyButtonOnClickListener() }
@@ -82,9 +129,31 @@ class DataAnalystMainActivity : AppCompatActivity() {
         }
 
         // PieChart
-        // todo:observe get data summary
-        pieChart = PieChart(pieChartIncludeBinding)
-        pieChart.setupPieChart()
+//        pieChart = PieChart(pieChartIncludeBinding)
+        viewModel.getDataSummaryResponse.observe(this, {
+            when(it) {
+                is Resource.Success -> {
+                    if(it.value.status == "OK"){
+                        val dataAnalystGetDataSummary = it.value.data
+//                        setupPieChart(dataAnalystGetDataSummary!!)
+                        viewModel.createPieChartEntries(dataAnalystGetDataSummary!!)
+                    } else {
+                        showToast("Failed to get data summary response")
+                    }
+                }
+                else -> {
+                    showToast("Failed to get data summary response")
+                }
+            }
+        })
+
+        viewModel.pieChartEntries.observe(this, {
+            try{
+                setPieData(pieChartIncludeBinding.dataAnalystPieChart, it)
+            } catch (e : Exception){
+                println("Error occurred ${e.printStackTrace()}")
+            }
+        })
 
         // update summary response
         viewModel.updateSummaryDataResponse.observe(this, {
@@ -98,7 +167,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
     // switch settings
     private fun handleOnCheckedOfSwitch() {
         binding!!.filterOption.text = resources.getString(R.string.filters_checked)
-        val dataAnalystFilterView: View = dataAnalystFilterInclude!!.dataAnalystFilterView
+        val dataAnalystFilterView: View = dataAnalystFilterInclude.dataAnalystFilterView
 
         // filter view
         dataAnalystFilterView.alpha = 0f
@@ -141,7 +210,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
     private fun handleOnUncheckedOfSwitch() {
         binding!!.filterOption.text = resources.getString(R.string.filters_un_checked)
-        dataAnalystFilterInclude!!.dataAnalystFilterView.visibility = View.GONE
+        dataAnalystFilterInclude.dataAnalystFilterView.visibility = View.GONE
         binding!!.dataAnalystApplyButton.visibility = View.GONE
 
         // refresh data button
@@ -155,7 +224,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
     // filter settings
     private fun handleApplyButtonOnClickListener() {
 
-        toggleProgressBar()
+//        toggleProgressBar()
         val pinCode = binding!!.dataAnalystPinCodeEditText.text.toString()
 
         val diseaseFilters = if(pinCode.length < 6){
@@ -169,7 +238,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
             viewModel.getDataSummary(diseaseFilters)
         }
 
-        toggleProgressBar()
+//        toggleProgressBar()
     }
 
     private fun getFilterDetails(pin : Int) : DiseaseFilters {
@@ -177,14 +246,14 @@ class DataAnalystMainActivity : AppCompatActivity() {
         val diseaseFilters = DiseaseFilters(pin = pin)
 
         // sex/gender
-        when(dataAnalystFilterInclude!!.dataAnalystSexRadioGroup.checkedRadioButtonId) {
+        when(dataAnalystFilterInclude.dataAnalystSexRadioGroup.checkedRadioButtonId) {
             R.id.data_analyst_sex_radiobutton_male -> diseaseFilters.sex = "male"
             R.id.data_analyst_sex_radiobutton_female -> diseaseFilters.sex = "female"
             R.id.data_analyst_sex_radiobutton_all -> diseaseFilters.sex = "all"
         }
 
         // age
-        val sliderValues = dataAnalystFilterInclude!!.dataAnalystAgeRangeSlider.values
+        val sliderValues = dataAnalystFilterInclude.dataAnalystAgeRangeSlider.values
         val minVal = sliderValues[0].toInt()
         val maxVal = sliderValues[1].toInt()
         diseaseFilters.startDate = minVal
@@ -192,7 +261,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
         // disease
         val diseasesArray = viewModel.getDiseaseArray()
-        when(dataAnalystFilterInclude!!.dataAnalystDiseaseAutoCompleteTextview.text.toString()){
+        when(dataAnalystFilterInclude.dataAnalystDiseaseAutoCompleteTextview.text.toString()){
             diseasesArray[0] -> diseaseFilters.diseaseType = "fever"
             diseasesArray[1] -> diseaseFilters.diseaseType = "cough"
             diseasesArray[2] -> diseaseFilters.diseaseType = "bodyPain"
@@ -206,30 +275,32 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
     // refresh button settings
     private fun handleRefreshDataButtonOnClickListener() {
-        toggleProgressBar()
+//        toggleProgressBar()
 
         val pinCode = binding!!.dataAnalystPinCodeEditText.text.toString()
         if(pinCode.length < 6){
             showToast("Please add pin code of length 6")
         } else {
-            viewModel.updateSummaryDataResponse(Integer.parseInt(pinCode))
+            val sharedPreferences = getSharedPreferences("FIXED", MODE_PRIVATE)
+            val token = sharedPreferences.getString("jwtToken", "ANY DEFAULT VALUE")
+            viewModel.updateSummaryDataResponse(token!!, Integer.parseInt(pinCode))
         }
 
-        toggleProgressBar()
+//        toggleProgressBar()
     }
 
     private fun showToast(message : String){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    private fun toggleProgressBar(){
-        if(binding!!.dataAnalystProgressBar.visibility == View.VISIBLE){
-            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-            binding!!.dataAnalystProgressBar.visibility = View.GONE
-        } else {
-            binding!!.dataAnalystProgressBar.visibility = View.VISIBLE
-            window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-        }
-    }
+//    private fun toggleProgressBar(){
+//        if(binding!!.dataAnalystProgressBar.visibility == View.VISIBLE){
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+//            binding!!.dataAnalystProgressBar.visibility = View.GONE
+//        } else {
+//            binding!!.dataAnalystProgressBar.visibility = View.VISIBLE
+//            window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+//                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+//        }
+//    }
 }

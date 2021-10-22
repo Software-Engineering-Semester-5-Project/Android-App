@@ -7,10 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.seprojectsemester5.R
-import com.example.seprojectsemester5.models.DataAnalystDataSummary
-import com.example.seprojectsemester5.models.DataAnalystGetDataSummary
-import com.example.seprojectsemester5.models.DiseaseFilters
-import com.example.seprojectsemester5.models.MessageResponse
+import com.example.seprojectsemester5.models.*
 import com.example.seprojectsemester5.repositories.DataAnalystRepository
 import com.example.seprojectsemester5.repositories.RemoteDataSource
 import com.example.seprojectsemester5.repositories.remote.DataAnalystApi
@@ -59,22 +56,23 @@ class DataAnalystMainActivityViewModel(application: Application) : AndroidViewMo
     }
 
     // pieChartData
-    private val _pieChartEntries = MutableLiveData<List<PieEntry>>()
-    val pieChartEntries : LiveData<List<PieEntry>>
+    private val _pieChartEntries = MutableLiveData<CustomPieEntry>()
+    val pieChartEntries : LiveData<CustomPieEntry>
         get() = _pieChartEntries
 
     fun createPieChartEntries(
-        dataAnalystGetDataSummary: DataAnalystDataSummary
+        diseaseType : String,
+        dataAnalystDataSummary : DataAnalystDataSummary
     ) {
-        val criteria = arrayOf("None", "Mild", "Moderate", "Sever")
+        val criteria = arrayOf("None", "Mild", "Moderate", "Severe")
 
         val entries = listOf(
-            PieEntry(dataAnalystGetDataSummary.safe.toFloat(), criteria[0]),
-            PieEntry(dataAnalystGetDataSummary.mild.toFloat(), criteria[1]),
-            PieEntry(dataAnalystGetDataSummary.moderate.toFloat(), criteria[2]),
-            PieEntry(dataAnalystGetDataSummary.sever.toFloat(), criteria[3])
+            PieEntry(dataAnalystDataSummary.safe.toFloat(), criteria[0]),
+            PieEntry(dataAnalystDataSummary.mild.toFloat(), criteria[1]),
+            PieEntry(dataAnalystDataSummary.moderate.toFloat(), criteria[2]),
+            PieEntry(dataAnalystDataSummary.sever.toFloat(), criteria[3])
         )
 
-        _pieChartEntries.value = entries
+        _pieChartEntries.value = CustomPieEntry(diseaseType, entries)
     }
 }

@@ -16,7 +16,7 @@
     <string name="data_analyst_sex_textview">Sex :</string>
     <string name="data_analyst_age_textview">Age :</string>
 
-<!--    diseases filter-->
+    <!--    diseases filter-->
     <string-array name="data_analyst_disease_type_array">
         <item>Fever</item>
         <item>Cough/Cold</item>

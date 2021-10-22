@@ -3,35 +3,41 @@ package com.example.seprojectsemester5.dataanalyst
 import android.R.integer
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color.BLACK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.example.seprojectsemester5.R
+import com.example.seprojectsemester5.SelectRole
 import com.example.seprojectsemester5.databinding.ActivityDataAnalystMainBinding
 import com.example.seprojectsemester5.databinding.DataAnalystFiltersBinding
 import com.example.seprojectsemester5.databinding.DataAnalystPieChartBinding
+import com.example.seprojectsemester5.models.CustomPieEntry
 import com.example.seprojectsemester5.models.DiseaseFilters
 import com.example.seprojectsemester5.repositories.remote.Resource
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.slider.RangeSlider
 
 @BindingAdapter("android:setPieData")
-fun setPieData(pieChart : com.github.mikephil.charting.charts.PieChart, entries: List<PieEntry>?){
+fun setPieData(pieChart : com.github.mikephil.charting.charts.PieChart, customPieEntry: CustomPieEntry?){
     pieChart.isDrawHoleEnabled = true
     pieChart.setUsePercentValues(true)
     pieChart.setEntryLabelTextSize(12f)
     pieChart.setEntryLabelColor(BLACK)
-    pieChart.centerText = "Disease Distribution"
+    pieChart.centerText = customPieEntry?.diseaseType
     pieChart.setCenterTextSize(24f)
     pieChart.description.isEnabled = false
 
@@ -51,7 +57,7 @@ fun setPieData(pieChart : com.github.mikephil.charting.charts.PieChart, entries:
         colors.add(color)
     }
 
-    val dataSet = PieDataSet(entries, "Disease Types")
+    val dataSet = PieDataSet(customPieEntry?.entries, "Disease Level Distribution")
     dataSet.colors = colors
 
     val pieData = PieData(dataSet)
@@ -62,7 +68,7 @@ fun setPieData(pieChart : com.github.mikephil.charting.charts.PieChart, entries:
 
     pieChart.data = pieData
     pieChart.invalidate()
-    println("Function is working")
+//    println("Function is working")
 }
 
 class DataAnalystMainActivity : AppCompatActivity() {
@@ -77,6 +83,12 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
     // pie chart
     private lateinit var pieChartIncludeBinding : DataAnalystPieChartBinding
+
+    // disease Type
+    private var diseaseType = "Fever"
+
+    // shared preferences
+    private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,6 +112,13 @@ class DataAnalystMainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application))
             .get(DataAnalystMainActivityViewModel::class.java)
+
+        // shared Preferences initialization
+        sharedPreferences = getSharedPreferences("FIXED", MODE_PRIVATE)
+
+        // menu settings
+        setSupportActionBar(binding!!.dataAnalystToolbar)
+        supportActionBar?.title = "Refresh Data"
 
         dataAnalystFilterInclude.viewModel = viewModel
         pieChartIncludeBinding.viewModel = viewModel
@@ -134,9 +153,17 @@ class DataAnalystMainActivity : AppCompatActivity() {
             when(it) {
                 is Resource.Success -> {
                     if(it.value.status == "OK"){
-                        val dataAnalystGetDataSummary = it.value.data
-//                        setupPieChart(dataAnalystGetDataSummary!!)
-                        viewModel.createPieChartEntries(dataAnalystGetDataSummary!!)
+                        showToast("Past result updated successfully!!")
+
+                        val data = it.value.data
+
+                        val rawData = "None : ${data?.safe}\n" +
+                                "Mild : ${data?.mild}\n" +
+                                "Moderate : ${data?.moderate}\n" +
+                                "Severe : ${data?.sever}"
+                        pieChartIncludeBinding.nameOfChart.text = rawData
+
+                        viewModel.createPieChartEntries(diseaseType, data!!)
                     } else {
                         showToast("Failed to get data summary response")
                     }
@@ -150,6 +177,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
         viewModel.pieChartEntries.observe(this, {
             try{
                 setPieData(pieChartIncludeBinding.dataAnalystPieChart, it)
+                showPieChart()
             } catch (e : Exception){
                 println("Error occurred ${e.printStackTrace()}")
             }
@@ -166,6 +194,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
     // switch settings
     private fun handleOnCheckedOfSwitch() {
+        supportActionBar?.title = "View Past Result"
         binding!!.filterOption.text = resources.getString(R.string.filters_checked)
         val dataAnalystFilterView: View = dataAnalystFilterInclude.dataAnalystFilterView
 
@@ -176,17 +205,6 @@ class DataAnalystMainActivity : AppCompatActivity() {
             .alpha(1f)
             .setDuration(shortAnimationDuration.toLong())
             .setListener(null)
-
-        // PieChartInclude
-        val pieChartView = pieChartIncludeBinding.dataAnalystPieChartView
-        if(pieChartView.visibility == View.GONE){
-            pieChartView.alpha = 0f
-            pieChartView.visibility = View.VISIBLE
-            pieChartView.animate()
-                .alpha(1f)
-                .setDuration(shortAnimationDuration.toLong())
-                .setListener(null)
-        }
 
         // apply button
         binding!!.dataAnalystApplyButton.alpha = 0f
@@ -209,6 +227,7 @@ class DataAnalystMainActivity : AppCompatActivity() {
     }
 
     private fun handleOnUncheckedOfSwitch() {
+        supportActionBar?.title = "Refresh Data"
         binding!!.filterOption.text = resources.getString(R.string.filters_un_checked)
         dataAnalystFilterInclude.dataAnalystFilterView.visibility = View.GONE
         binding!!.dataAnalystApplyButton.visibility = View.GONE
@@ -261,7 +280,10 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
         // disease
         val diseasesArray = viewModel.getDiseaseArray()
-        when(dataAnalystFilterInclude.dataAnalystDiseaseAutoCompleteTextview.text.toString()){
+        val disease = dataAnalystFilterInclude.dataAnalystDiseaseAutoCompleteTextview.text
+            .toString()
+        diseaseType = disease
+        when(disease){
             diseasesArray[0] -> diseaseFilters.diseaseType = "fever"
             diseasesArray[1] -> diseaseFilters.diseaseType = "cough"
             diseasesArray[2] -> diseaseFilters.diseaseType = "bodyPain"
@@ -281,7 +303,6 @@ class DataAnalystMainActivity : AppCompatActivity() {
         if(pinCode.length < 6){
             showToast("Please add pin code of length 6")
         } else {
-            val sharedPreferences = getSharedPreferences("FIXED", MODE_PRIVATE)
             val token = sharedPreferences.getString("jwtToken", "ANY DEFAULT VALUE")
             viewModel.updateSummaryDataResponse(token!!, Integer.parseInt(pinCode))
         }
@@ -291,6 +312,44 @@ class DataAnalystMainActivity : AppCompatActivity() {
 
     private fun showToast(message : String){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    // pie chart view
+    private fun showPieChart(){
+        val pieChartView = pieChartIncludeBinding.dataAnalystPieChartView
+        if(pieChartView.visibility == View.GONE){
+            pieChartView.alpha = 0f
+            pieChartView.visibility = View.VISIBLE
+            pieChartView.animate()
+                .alpha(1f)
+                .setDuration(shortAnimationDuration.toLong())
+                .setListener(null)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.signout_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.menu_logout -> {
+                val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                editor.putString("jwtToken", "")
+                editor.putString("roleToken", "")
+                editor.apply()
+                showToast("Logout Successfully!!")
+                val intent = Intent(this, SelectRole::class.java)
+                startActivity(intent)
+                finish()
+                true
+            }
+            R.id.menu_help -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 //    private fun toggleProgressBar(){

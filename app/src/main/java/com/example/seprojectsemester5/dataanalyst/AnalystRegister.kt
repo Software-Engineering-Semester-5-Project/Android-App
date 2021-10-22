@@ -111,6 +111,7 @@ class AnalystRegister : AppCompatActivity() {
                         Toast.makeText(this,
                             "${it.value.message} successfully!! Please Login",
                             Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, AnalystLogin::class.java))
                     } else {
                         Toast.makeText(this, it.value.message, Toast.LENGTH_SHORT).show()
                     }

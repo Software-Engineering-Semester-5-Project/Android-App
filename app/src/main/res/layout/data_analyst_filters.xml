@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/data_analyst_age_min_value_textview"
-                android:text="30"
+                android:text="20"
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
 
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/data_analyst_age_max_value_textview"
-                android:text="70"
+                android:text="40"
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
 

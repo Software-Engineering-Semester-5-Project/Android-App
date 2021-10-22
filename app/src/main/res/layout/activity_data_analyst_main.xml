@@ -25,6 +25,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/data_analyst_appBarLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                android:backgroundTint="@color/teal_700"
+                >
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/data_analyst_toolbar"
+                    app:menu="@menu/signout_menu" />
+            </com.google.android.material.appbar.AppBarLayout>
+
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/filter_option"
                 android:layout_width="wrap_content"
@@ -35,7 +49,7 @@
                 tools:checked="true"
                 android:layout_margin="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/data_analyst_appBarLayout"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
@@ -45,8 +59,9 @@
                 tools:visibility="visible"
                 android:text="@string/data_analyst_apply_button"
                 android:layout_margin="8dp"
+                android:backgroundTint="@color/teal_200"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/data_analyst_appBarLayout"/>
 
             <include
                 android:layout_width="match_parent"
@@ -85,6 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/data_analyst_refresh_result_button"
+                    android:backgroundTint="@color/teal_200"
                     android:text="@string/data_analyst_button_refresh_result"/>
 
             </LinearLayout>

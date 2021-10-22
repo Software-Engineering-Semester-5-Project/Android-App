@@ -98,7 +98,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("jwtToken", "");
-                editor.commit();
+                editor.apply();
                 Intent intent = new Intent(getActivity(), Dashboard.class);
                 startActivity(intent);
             }

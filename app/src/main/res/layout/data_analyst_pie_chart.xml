@@ -19,6 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:id="@+id/data_analyst_pie_chart"
+                android:setPieData="@{viewModel.pieChartEntries}"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,14 +34,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
-                android:text="Common Cold"/>
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:id="@+id/data_analyst_pie_chart"
-                android:setPieData="@{viewModel.pieChartEntries}"/>
-
+                tools:text="Disease Type"/>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

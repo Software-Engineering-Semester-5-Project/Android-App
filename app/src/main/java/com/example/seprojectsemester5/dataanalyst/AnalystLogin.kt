@@ -89,6 +89,7 @@ class AnalystLogin : AppCompatActivity() {
                         val sharedpreferences = getSharedPreferences("FIXED", MODE_PRIVATE)
                         val editor = sharedpreferences.edit()
                         editor.putString("jwtToken", it.value.token!!)
+                        editor.putString("roleToken", "Analyst")
                         editor.apply()
                         startActivity(Intent(this, DataAnalystMainActivity::class.java))
                     } else {

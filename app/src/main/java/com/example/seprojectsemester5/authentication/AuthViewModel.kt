@@ -52,5 +52,5 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // json token storage
-
+    val userDetails = UserDetails(getApplication())
 }

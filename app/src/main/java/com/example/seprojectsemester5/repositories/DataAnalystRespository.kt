@@ -6,9 +6,10 @@ import com.example.seprojectsemester5.repositories.remote.DataAnalystApi
 class DataAnalystRepository(private val api : DataAnalystApi) : BaseRepository() {
 
     suspend fun updateSummaryData(
+        authToken : String,
         pinCode : Int
     ) = safeApiCall {
-        api.updateSummaryData(pinCode)
+        api.updateSummaryData(authToken, pinCode)
     }
 
     suspend fun getSummaryData(

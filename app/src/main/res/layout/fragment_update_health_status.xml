@@ -7,6 +7,7 @@
     tools:context=".UpdateHealthStatusFragment">
 
 
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -18,10 +19,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp">
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
             <TextView
                 android:id="@+id/textView2"
@@ -29,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingBottom="20dp"
-                android:layout_marginBottom="50dp"
                 android:text="DASHBOARD"
                 android:textStyle="bold"
                 android:textAllCaps="true"
@@ -42,7 +50,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -87,6 +97,8 @@
         app:layout_constraintVertical_bias="0.425">
 
 
+
+
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="304dp"
@@ -97,6 +109,15 @@
             android:padding="10dp"
 
             >
+
+            <ImageView
+                android:id="@+id/help1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_baseline_help_center_24"
+                app:tint="@color/teal_700"
+                android:tooltipText="HELP"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -117,6 +138,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/teal_700">
+
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -134,7 +157,11 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textStyle="bold"></TextView>
+                    android:textStyle="bold">
+
+                </TextView>
+
+
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/colleceddata"
@@ -145,11 +172,12 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/teal_700">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/outline_assessment_24"
+                    android:src="@drawable/ic_sync_black_24dp"
                     android:layout_marginTop="20dp"
                     app:tint="@color/white"></ImageView>
 
@@ -158,7 +186,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:text="UNSYNCED DATA"
+                    android:text="SYNC DATA"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="18sp"

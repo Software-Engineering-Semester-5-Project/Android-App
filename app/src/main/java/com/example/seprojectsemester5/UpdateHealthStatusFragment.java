@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,6 +66,15 @@ public class UpdateHealthStatusFragment extends Fragment {
         View Activity = inflater.inflate(R.layout.fragment_update_health_status, container, false);
 
 
+        ImageView help = Activity.findViewById(R.id.help);
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Help.class);
+                startActivity(intent);
+            }
+        });
 
         CardView proceedtonewdata = Activity.findViewById(R.id.addnewdata);
         proceedtonewdata.setOnClickListener(new View.OnClickListener() {

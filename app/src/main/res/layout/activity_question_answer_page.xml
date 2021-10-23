@@ -27,7 +27,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:text="Health Survey"
                 android:layout_margin="10dp"
 
@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Last Updated: 12/07/21"
             android:layout_marginTop="7dp"/>
+
     <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -74,12 +74,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/fevelq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:text="Did you have fever in last four months?" />
+                />
             <RadioGroup
                 android:id="@+id/fever"
                 android:layout_width="match_parent"
@@ -152,13 +153,15 @@
             android:orientation="vertical">
 
             <TextView
+
+                android:id="@+id/coughq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
 
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="Did you have Cough or cold in last four months?" />
+                />
             <RadioGroup
                 android:id="@+id/cough"
                 android:layout_width="match_parent"
@@ -231,13 +234,15 @@
             android:orientation="vertical">
 
             <TextView
+
+                android:id="@+id/bodypainq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
 
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="Did you have body pain in the last four months?" />
+                />
             <RadioGroup
                 android:id="@+id/bodyPain"
                 android:layout_width="match_parent"
@@ -312,13 +317,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/breatingq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
 
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="Did you face breathing problem in last four months?" />
+                />
             <RadioGroup
                 android:id="@+id/breathingProblem"
                 android:layout_width="match_parent"
@@ -391,13 +397,15 @@
             android:orientation="vertical">
 
             <TextView
+
+                android:id="@+id/eyeq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
                 android:textStyle="bold"
 
                 android:textColor="@color/black"
-                android:text="Did you have any eye problem in the last four months?" />
+              />
             <RadioGroup
                 android:id="@+id/eyeCheck"
                 android:layout_width="match_parent"
@@ -471,12 +479,14 @@
             android:orientation="vertical">
 
             <TextView
+
+                android:id="@+id/skinq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:text="Did you face any skin problem in the last four months?" />
+            />
             <RadioGroup
                 android:id="@+id/skinCheck"
                 android:layout_width="match_parent"

@@ -4,8 +4,12 @@ import static com.google.android.material.datepicker.MaterialDatePicker.Builder.
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -14,8 +18,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.seprojectsemester5.repositories.remote.Resource;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
@@ -25,12 +31,18 @@ import java.util.Objects;
 public class PesonalDataFeeding extends AppCompatActivity {
 
 
+    boolean lan_selected = true;
+    Context context;
+    Resources resources;
+    String Lang = "English";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesonal_data_feeding);
 
+
+        TextView ChangeLanguage = findViewById(R.id.changeLanguage);
 
 
         EditText aadharNumber = (EditText) findViewById(R.id.uid);
@@ -39,6 +51,84 @@ public class PesonalDataFeeding extends AppCompatActivity {
         EditText Age = (EditText) findViewById(R.id.age);
         EditText Pin = (EditText) findViewById(R.id.pincode);
         RadioGroup Gender = findViewById(R.id.radioGroup);
+        TextView Gend = findViewById(R.id.gend);
+        RadioButton one = findViewById(R.id.radio_button_1);
+        RadioButton two = findViewById(R.id.radio_button_2);
+
+
+        context = LocaleHelper.setLocale(PesonalDataFeeding.this,"en");
+        resources =context.getResources();
+        Name.setHint(resources.getString(R.string.name));
+        aadharNumber.setHint(resources.getString(R.string.aadharNumber));
+        Phone.setHint(resources.getString(R.string.phone));
+        Age.setHint(resources.getString(R.string.age));
+        Pin.setHint(resources.getString(R.string.pincode));
+        Gend.setText(resources.getString(R.string.gender));
+        one.setText(resources.getString(R.string.male));
+        two.setText(resources.getString(R.string.female));
+
+
+
+        ChangeLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String[] language = {"English", "हिंदी"};
+                int checkedItem = 0;
+                if(lan_selected){
+                    checkedItem = 0;
+                }
+                else{
+                    checkedItem = 1;
+                }
+                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(PesonalDataFeeding.this);
+                dialogBuilder.setTitle("Select a Language")
+                        .setSingleChoiceItems(language, checkedItem, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if(language[i].equals("English")){
+                                    context = LocaleHelper.setLocale(PesonalDataFeeding.this,"en");
+                                    resources =context.getResources();
+                                    Name.setHint(resources.getString(R.string.name));
+                                    aadharNumber.setHint(resources.getString(R.string.aadharNumber));
+                                    Phone.setHint(resources.getString(R.string.phone));
+                                    Age.setHint(resources.getString(R.string.age));
+                                    Pin.setHint(resources.getString(R.string.pincode));
+                                    Gend.setText(resources.getString(R.string.gender));
+                                    setTitle(resources.getString(R.string.app_name));
+                                    one.setText(resources.getString(R.string.male));
+                                    two.setText(resources.getString(R.string.female));
+                                    Lang = "English";
+                                }
+                                else if(language[i].equals("हिंदी"))
+                                {
+                                    context = LocaleHelper.setLocale(PesonalDataFeeding.this,"hi");
+                                    resources =context.getResources();
+                                    Name.setHint(resources.getString(R.string.name));
+                                    aadharNumber.setHint(resources.getString(R.string.aadharNumber));
+                                    Phone.setHint(resources.getString(R.string.phone));
+                                    Age.setHint(resources.getString(R.string.age));
+                                    Pin.setHint(resources.getString(R.string.pincode));
+                                    Gend.setText(resources.getString(R.string.gender));
+                                    setTitle(resources.getString(R.string.app_name));
+                                    one.setText(resources.getString(R.string.male));
+                                    two.setText(resources.getString(R.string.female));
+                                    Lang = "हिंदी";
+                                }
+                            }
+                        })
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                dialogBuilder.create().show();
+            }
+        });
+
+
+
+
 
 
         Button personalDataSubmit = (Button) findViewById(R.id.personalDataSubmit);
@@ -63,7 +153,7 @@ public class PesonalDataFeeding extends AppCompatActivity {
                                                 intent.putExtra("Pin", Pin.getText().toString());
                                                 intent.putExtra("AadharNumber", aadharNumber.getText().toString());
                                                 intent.putExtra("Gender", mode.getText().toString());
-
+                                                intent.putExtra("Lang", Lang);
                                                 PesonalDataFeeding.this.startActivity(intent);
                                             }
                                             else{

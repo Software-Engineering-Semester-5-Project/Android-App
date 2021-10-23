@@ -345,9 +345,6 @@ class DataAnalystMainActivity : AppCompatActivity() {
                 finish()
                 true
             }
-            R.id.menu_help -> {
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
     }

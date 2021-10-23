@@ -120,6 +120,10 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                 else{
                     if(active != null){
 
+                        if(DATA.size() == 0) {
+                            Toast.makeText(getApplicationContext(), "No Entries to Sync", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
                         final String url = "https://g0uravlathwal.herokuapp.com/member/fillsurvey";
 
                         int N = DATA.size();
@@ -246,6 +250,8 @@ public class SyncedUnsycnedData extends AppCompatActivity {
                                 }
                             }
                         }).start();
+
+                    }
 
                     }
                     else{

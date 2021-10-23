@@ -109,9 +109,10 @@ class AnalystRegister : AppCompatActivity() {
                 is Resource.Success -> {
                     if(it.value.status == "OK"){
                         Toast.makeText(this,
-                            "${it.value.message} successfully!! Please Login",
+                            "${it.value.message} successfully!! NGO Verification Pending.",
                             Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, AnalystLogin::class.java))
+                        finish()
                     } else {
                         Toast.makeText(this, it.value.message, Toast.LENGTH_SHORT).show()
                     }

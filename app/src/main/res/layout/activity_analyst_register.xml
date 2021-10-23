@@ -42,7 +42,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="350dp"
-        android:layout_height="550dp"
+        android:layout_height="450dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,18 +104,22 @@
                 android:padding="10dp"
                 android:id="@+id/data_analyst_register_password_edit_text"
                 android:textSize="18dp"></EditText>
-
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+            <LinearLayout
+                android:layout_width="275dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal">
                 <EditText
-                    android:layout_width="130dp"
+                    android:layout_width="230dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
-                    android:layout_marginLeft="20dp"
+
                     android:background="@drawable/edit_text_border"
                     android:hint="Enter OTP"
                     android:inputType="numberPassword"
@@ -128,11 +132,12 @@
                     android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/button_background"
                     android:text="VERIFY OTP"
                     android:id="@+id/data_analyst_register_opt_button"
                     android:textColor="@color/white"></Button>
+            </LinearLayout>
             </LinearLayout>
 
             <Button

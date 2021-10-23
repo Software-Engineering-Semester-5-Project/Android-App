@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PesonalDataFeeding"
-    android:elevation="2dp">
+    android:elevation="2dp"
+    >
 
 
     <LinearLayout
@@ -31,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingBottom="20dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="100dp"
 
                 android:text="Personal Data"
                 android:textStyle="bold"
@@ -90,7 +91,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.425">
+        app:layout_constraintVertical_bias="0.425"
+        >
 
 
 
@@ -109,55 +111,59 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Aadhar Number*"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                android:padding="5dp"
+                app:startIconDrawable="@drawable/ic_baseline_credit_card_24">
+
+                <EditText
                     android:id="@+id/uid"
+                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
+                    android:background="@drawable/edit_text_border" />
 
-                </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name*"
                 android:padding="5dp"
+
                 app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:padding="5dp"
                     android:id="@+id/name"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
+                    android:background="@drawable/edit_text_border"
+                    />
 
-                </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Age*"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                android:padding="5dp"
+                app:startIconDrawable="@drawable/ic_baseline_timeline_24">
+
+                <EditText
+                    android:padding="5dp"
                     android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:background="@drawable/edit_text_border"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -167,34 +173,35 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Pincode*"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                android:padding="5dp"
+                app:startIconDrawable="@drawable/ic_baseline_location_on_24">
+
+                <EditText
+                    android:padding="5dp"
                     android:id="@+id/pincode"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
+                    android:background="@drawable/edit_text_border"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone"
-                android:padding="5dp"
-                app:startIconDrawable="@drawable/ic_person_black_24dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                android:padding="5dp"
+                app:startIconDrawable="@drawable/ic_call_black_24dp">
+
+                <EditText
+                    android:padding="5dp"
                     android:id="@+id/phone"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_text_border">
-
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:background="@drawable/edit_text_border"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,12 +213,14 @@
                 >
 
                 <TextView
+                    android:id="@+id/gend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gender*"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:gravity="right">
+                    android:gravity="right"
+                    >
 
                 </TextView>
             <RadioGroup
@@ -226,12 +235,12 @@
                 android:id="@+id/radio_button_1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Male"/>
+                />
             <RadioButton
                 android:id="@+id/radio_button_2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Female"/>
+                />
             </RadioGroup>
             </LinearLayout>
 
@@ -246,6 +255,14 @@
                 android:text="PROCEED ➤"
                 android:layout_margin="7dp"/>
 
+            <TextView
+                android:id="@+id/changeLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change Language"
+                android:gravity="center"
+                android:layout_margin="20dp"></TextView>
+
         </LinearLayout>
 
 
@@ -254,7 +271,6 @@
 
 
     </androidx.cardview.widget.CardView>
-
 
 
 

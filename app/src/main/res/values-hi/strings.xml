@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="selectedlanguage">हिंदी</string>
+    <string name="name">नाम</string>
+    <string name="aadharNumber">आधार नंबर</string>
+    <string name="age">उम्र</string>
+    <string name="pincode">पिन कोड</string>
+    <string name="gender">लिंग</string>
+    <string name="male">पुरुष</string>
+    <string name="female">महिला</string>
+    <string name="phone">फ़ोन</string>
+    <string name="coughq">क्या आपको पिछले चार महीनों में खांसी या जुकाम हुआ है?</string>
+    <string name="feverq">क्या आपको पिछले चार महीनों में बुखार आया है?</string>
+    <string name="bodypainq">क्या आपको पिछले चार महीनों में शरीर में दर्द हुआ है?</string>
+    <string name="breatingq">क्या आपको पिछले चार महीनों में सांस लेने में समस्या का सामना करना पड़ा?</string>
+    <string name="skinq">क्या आपको पिछले चार महीनों में त्वचा संबंधी किसी समस्या का सामना करना पड़ा है??</string>
+    <string name="eyeq">क्या आपको पिछले चार महीनों में आँखों की कोई समस्या थी?</string>
+    <string name="severe">गंभीर</string>
+    <string name="moderate">उदारवादी</string>
+    <string name="mild">हल्का</string>
+    <string name="nothing">कुछ नहीं</string>
+</resources>

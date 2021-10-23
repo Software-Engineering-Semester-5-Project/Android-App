@@ -82,6 +82,7 @@ public class Login extends AppCompatActivity {
                                         SharedPreferences sharedpreferences = getSharedPreferences("FIXED", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sharedpreferences.edit();
                                         editor.putString("jwtToken", response.toString().substring(24, response.toString().length() - 2));
+                                        editor.putString("roleToken", "Collector");
                                         editor.commit();
                                         Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                                         startActivity(intent);

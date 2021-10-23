@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:paddingBottom="20dp"
+                android:paddingBottom="50dp"
                 android:text="DASHBOARD"
                 android:textStyle="bold"
                 android:textAllCaps="true"
@@ -85,9 +85,9 @@
         android:layout_width="324dp"
         android:layout_height="wrap_content"
         android:foregroundGravity="center_horizontal"
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,24 +106,31 @@
             android:layout_gravity="center"
             android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="5dp"
 
             >
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="18dp"
+                android:text="HELP"
+                android:layout_gravity="right"
+                >
 
+            </TextView>
             <ImageView
-                android:id="@+id/help1"
+                android:id="@+id/help"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:src="@drawable/ic_baseline_help_center_24"
                 app:tint="@color/teal_700"
-                android:tooltipText="HELP"/>
+
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:text="Please select your role"
                 android:textAlignment="center"

@@ -116,7 +116,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="40dp"
                     android:background="@drawable/button_background"
-                    android:text="SEND OTP"
+                    android:text="Register"
                     android:textColor="@color/white"></Button>
 
                 <EditText
@@ -140,7 +140,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_background"
-                android:text="REGISTER"
+                android:text="VERIFY"
                 android:textColor="@color/white"></Button>
 
             <TextView

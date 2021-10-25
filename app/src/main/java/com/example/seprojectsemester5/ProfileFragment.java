@@ -100,7 +100,7 @@ public class ProfileFragment extends Fragment {
                 editor.putString("jwtToken", "");
                 editor.putString("roleToken", "");
                 editor.apply();
-                Intent intent = new Intent(getActivity(), Dashboard.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });
